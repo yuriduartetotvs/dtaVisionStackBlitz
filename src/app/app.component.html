@@ -1,0 +1,100 @@
+
+<div class="button-container">
+  <nav class="button-nav">
+    <button class="custom-button" (click)="abrirModalQrCode()">
+      <img src="dta-logo.svg" alt="Icon" class="button-icon">
+      <span>DTA VISION Document</span>
+    </button>
+  </nav>
+</div>
+
+<form [formGroup]="form">
+  <po-loading-overlay
+  [hidden]="!loading"
+  [p-screen-lock]="!screenLock"
+  innerText="Aguardando dados da IA"
+  title="Aguardando dados da IA"/>
+  
+
+  @if(this.dadosPessoais != null) {
+    <po-container po-sm-12 po-md-6>
+      <!-- Dados Pessoais -->
+      <po-input
+        p-label="Nome"
+        p-placeholder="Nome do usuário"
+        p-required="true"
+        [p-minlength]="6"
+        [p-maxlength]="20"
+        formControlName="name">
+      </po-input>
+      <po-divider></po-divider>
+      <po-input
+        p-label="CPF"
+        p-placeholder="Digite o código do CPF"
+        p-required="true"
+        [p-minlength]="6"
+        [p-maxlength]="30"
+        formControlName="cpf">
+      </po-input>
+      <po-input 
+        p-label="Validade da CNH"
+        p-placeholder="Validade da CNH"
+        p-required="true"
+        formControlName="validade"/>
+      <po-input 
+        p-label="Data Nascimento"
+        p-placeholder="Data Nascimento"
+        p-required="true"
+        formControlName="dataNascimento"/>
+    </po-container>
+    <br>
+    <br>
+  }
+@if(this.historicoEscolar != null) {
+    <po-container po-sm-12 po-md-6>
+      <!-- Alunos Info -->
+      <po-input
+        p-label="Nome do Aluno"
+        p-placeholder="Nome do Aluno"
+        p-required="true"
+        [p-minlength]="6"
+        [p-maxlength]="20"
+        formControlName="nomeAluno">
+      </po-input>
+      <po-divider></po-divider>
+      <po-input
+        p-label="Matricula"
+        p-placeholder="Matricula do Aluno"
+        p-required="true"
+        [p-minlength]="6"
+        [p-maxlength]="30"
+        formControlName="matricula">
+      </po-input>
+    </po-container>
+
+    <po-divider></po-divider>
+      <po-table
+        p-container="shadow"
+        [p-height]="500"
+        [p-hide-batch-actions]="false"
+        [p-hide-table-search]="false"
+        [p-sort]="true"
+        [p-striped]="true"
+        [p-columns]="columns"
+        [p-items]="this.historicoEscolar.disciplinas"
+        [p-max-columns]="7">
+      </po-table>
+} 
+</form>
+
+@if(this.habilitaModalDtaVision) {
+  <dta-vision-ocr #webAppModal
+    [idDTAVision]="idTotvsVision"
+    [idProjeto]="idProjeto"
+    [user]="user"
+    [listButtonsDocument]="buttonList"
+    [contingency]="contingency"
+    (informacaoEnviada)="receberInformacao({ menssagem
+      : $event.menssagem, uniqueKey: $event.uniqueKey})">
+  </dta-vision-ocr>
+}
