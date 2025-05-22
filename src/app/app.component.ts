@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
 
   abrirModalQrCode() {
     this.habilitaModalDtaVision = true;
-    this.webAppModal?.ngOnInit();
+    this.webAppModal?.openWebAppModal();
   }
 
   buttonList: ButtonDocumentModel[] = [
