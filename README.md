@@ -64,3 +64,5 @@ contingency = ''; // Usar apenas se solicitado
 - [Repositório DTA Vision no Github](https://github.com/yuriduartetotvs/dtaVisionStackBlitz)
 - [Stackblitz DTA Vision](https://stackblitz.com/~/github.com/yuriduartetotvs/dtaVisionStackBlitz)
 - [Documentação Oficial TOTVS](https://npm.totvs.io/-/web/detail/dta-vision-ocr) (pode variar conforme produto)
+
+ola mundo
