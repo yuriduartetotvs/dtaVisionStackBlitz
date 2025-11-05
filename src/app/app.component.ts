@@ -64,25 +64,23 @@ export class AppComponent implements OnInit {
       "idButton": "01",
       "nameButton": "Dados Pessoais",
       "imageReturn": true,
-      "canUserSet": true,
       "userFields": [
         {
-          "fieldLabel": "Teste",
           "fieldName": "name",
+          "fieldDescription": "Nome do usuario",
           "fieldType": "string"
         },
         {
-          "fieldLabel": "CPF",
           "fieldName": "cpf",
+          "fieldDescription": "Cpf do usuario",
           "fieldType": "string"
         },
         {
-          "fieldLabel": "validade",
           "fieldName": "validade",
+          "fieldDescription": "Data de validade da carteira",
           "fieldType": "string"
         },
         {
-          "fieldLabel": "data de nascimento",
           "fieldName": "dataNascimento",
           "fieldType": "string"
         }
@@ -96,13 +94,15 @@ export class AppComponent implements OnInit {
         {
           "fieldName": "alunoInfo",
           "fieldType": "object",
-          userArray: [
+          "subFields": [
             {
               "fieldName": "nomeAluno",
+              "fieldDescription": "Nome do aluno",
               "fieldType": "string"
             },
             {
               "fieldName": "matricula",
+              "fieldDescription": "Matricula do aluno",
               "fieldType": "string"
             }
           ]
@@ -110,21 +110,25 @@ export class AppComponent implements OnInit {
         {
           "fieldName": "disciplinas",
           "fieldType": "array",
-          userArray: [
+           "subFields": [
             {
               "fieldName": "disciplina",
+              "fieldDescription": "Nome da discipline",
               "fieldType": "string"
             },
             {
               "fieldName": "nota",
+              "fieldDescription": "Nota do aluno",
               "fieldType": "string"
             },
             {
               "fieldName": "cargaHoraria",
+              "fieldDescription": "Carga horario do aluno",
               "fieldType": "string"
             },
             {
               "fieldName": "credito",
+              "fieldDescription": "Credito do aluno",
               "fieldType": "string"
             }
           ]
