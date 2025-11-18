@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
 
   abrirModalQrCode() {
     this.habilitaModalDtaVision = true;
-    this.webAppModal?.openWebAppModal();
+    this.webAppModal?.ngOnInit();
   }
 
   buttonList: ButtonDocumentModel[] = [
@@ -64,23 +64,25 @@ export class AppComponent implements OnInit {
       "idButton": "01",
       "nameButton": "Dados Pessoais",
       "imageReturn": true,
+      "canUserSet": true,
       "userFields": [
         {
+          "fieldDescription": "Teste",
           "fieldName": "name",
-          "fieldDescription": "Nome do usuario",
           "fieldType": "string"
         },
         {
+          "fieldDescription": "CPF",
           "fieldName": "cpf",
-          "fieldDescription": "Cpf do usuario",
           "fieldType": "string"
         },
         {
+          "fieldDescription": "validade",
           "fieldName": "validade",
-          "fieldDescription": "Data de validade da carteira",
           "fieldType": "string"
         },
         {
+          "fieldDescription": "data de nascimento",
           "fieldName": "dataNascimento",
           "fieldType": "string"
         }
@@ -94,15 +96,13 @@ export class AppComponent implements OnInit {
         {
           "fieldName": "alunoInfo",
           "fieldType": "object",
-          "subFields": [
+          subFields: [
             {
               "fieldName": "nomeAluno",
-              "fieldDescription": "Nome do aluno",
               "fieldType": "string"
             },
             {
               "fieldName": "matricula",
-              "fieldDescription": "Matricula do aluno",
               "fieldType": "string"
             }
           ]
@@ -110,25 +110,21 @@ export class AppComponent implements OnInit {
         {
           "fieldName": "disciplinas",
           "fieldType": "array",
-           "subFields": [
+          subFields: [
             {
               "fieldName": "disciplina",
-              "fieldDescription": "Nome da discipline",
               "fieldType": "string"
             },
             {
               "fieldName": "nota",
-              "fieldDescription": "Nota do aluno",
               "fieldType": "string"
             },
             {
               "fieldName": "cargaHoraria",
-              "fieldDescription": "Carga horario do aluno",
               "fieldType": "string"
             },
             {
               "fieldName": "credito",
-              "fieldDescription": "Credito do aluno",
               "fieldType": "string"
             }
           ]
